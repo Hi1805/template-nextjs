@@ -1,8 +1,8 @@
 type AxiosRequestConfig = import('axios').AxiosRequestConfig;
 
-interface IHttpRequestConfig extends AxiosRequestConfig {
-  isNotRequiredAuthentication?: boolean;
-}
+// interface IHttpRequestConfig extends AxiosRequestConfig {
+//   isNotRequiredAuthentication?: boolean;
+// }
 
 interface IAuthToken {
   access_token?: string;

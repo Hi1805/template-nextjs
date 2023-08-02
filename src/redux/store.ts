@@ -15,6 +15,10 @@ const rootReducer: Reducer = (state: RootState, action) => {
   return appReducer(state, action);
 };
 
+export const resetStore = () => ({
+  type: RESET_STATE_ACTIONS,
+});
+
 export const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV !== 'production',

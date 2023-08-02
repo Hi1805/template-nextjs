@@ -1,16 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {};
 const appSlice = createSlice({
-  name: 'todos',
-  initialState: [],
-  reducers: {
-    addPost(state, action) {},
-    removePost(state, action) {
-      state.splice(action.payload, 1);
-    },
-  },
+  name: 'app/state',
+  initialState,
+  reducers: {},
 });
 
 const { actions, reducer: appReducer } = appSlice;
-export const { addPost, removePost } = actions;
 export default appReducer;

@@ -4,6 +4,7 @@ import localStorageService from './localStorage.service';
 import StoreKeys from '@/constants/storekeys';
 import HttpStatusCode from '@/constants/httpStatusCode';
 import axiosConfig from '@/configs/api.config';
+import _omitBy from 'lodash/omitBy';
 
 /** @class */
 export default class HttpService {
@@ -27,7 +28,7 @@ export default class HttpService {
     }
   }
 
-  private onRequest = async (config: IHttpRequestConfig) => {
+  private onRequest = async (config: AxiosRequestConfig) => {
     return config;
   };
 
@@ -65,25 +66,30 @@ export default class HttpService {
     return axiosInstance;
   }
 
-  public async get<T>(url: string, config?: IHttpRequestConfig) {
+  public async get<T>(url: string, config?: AxiosRequestConfig) {
     return await this.instance.get<T>(`${url}`, config);
   }
 
-  public async post<T>(url: string, data?: any, config?: IHttpRequestConfig) {
+  public async post<T>(url: string, data?: any, config?: AxiosRequestConfig) {
     return await this.instance.post<T>(url, data, config);
   }
 
-  public async patch<T>(url: string, data: any, config?: IHttpRequestConfig) {
+  public async patch<T>(url: string, data: any, config?: AxiosRequestConfig) {
     return await this.instance.patch<T>(url, data, config);
   }
 
-  public async delete(url: string, config?: IHttpRequestConfig) {
+  public async delete(url: string, config?: AxiosRequestConfig) {
     return await this.instance.delete(url, config);
   }
 
-  public setHttpConfigs(config?: Partial<IHttpRequestConfig>) {
+  public setHttpConfigs(config?: Partial<AxiosRequestConfig>) {
     if (config?.baseURL) {
       this.instance.defaults.baseURL = config.baseURL;
     }
+
+    this.instance.defaults = {
+      ...this.instance.defaults,
+      ..._omitBy(config, 'BaseURL'),
+    };
   }
 }
