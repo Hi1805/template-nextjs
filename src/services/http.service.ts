@@ -3,11 +3,13 @@ import axios from 'axios';
 import localStorageService from './localStorage.service';
 import StoreKeys from '@/constants/storekeys';
 import HttpStatusCode from '@/constants/httpStatusCode';
+import axiosConfig from '@/configs/api.config';
 
+/** @class */
 export default class HttpService {
   private instance: AxiosInstance;
 
-  constructor(config?: IHttpRequestConfig) {
+  constructor(config = axiosConfig) {
     const axiosConfigs = config || {};
     const instance = axios.create({ ...axiosConfigs });
     Object.assign(instance, this.setupInterceptorsTo(instance));

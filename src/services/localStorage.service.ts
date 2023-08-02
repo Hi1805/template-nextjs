@@ -3,7 +3,7 @@ class LocalStorageService {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
-  public get<T>(key: string, defaultValue: T) {
+  public get<T, D>(key: string, defaultValue: D): T {
     const item = localStorage.getItem(key) || JSON.stringify(defaultValue);
     return JSON.parse(item);
   }
