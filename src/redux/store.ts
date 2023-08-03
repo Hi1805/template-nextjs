@@ -1,4 +1,9 @@
-import { Reducer, combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  Reducer,
+  combineReducers,
+  configureStore,
+  createReducer,
+} from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import exampleReducer from './slices/example.slice';
 import { RESET_STATE_ACTIONS } from '@/constants/actions';

@@ -1,4 +1,9 @@
-import { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
+import {
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+} from 'axios';
 import axios from 'axios';
 import localStorageService from './localStorage.service';
 import StoreKeys from '@/constants/storekeys';

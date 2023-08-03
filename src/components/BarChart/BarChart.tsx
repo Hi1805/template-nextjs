@@ -14,6 +14,7 @@ import {
   ChartData,
 } from 'chart.js';
 import { Chart, ChartProps } from 'react-chartjs-2';
+
 ChartJS.register(
   LinearScale,
   CategoryScale,
