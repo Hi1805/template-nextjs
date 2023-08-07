@@ -1,7 +1,12 @@
-
+'use client';
 import BarChart from '@/components/BarChart/BarChart';
+import useGetExample from '@/features/example/useGetExample';
 import React from 'react';
-const example = () => {
+const Example = () => {
+  const { data } = useGetExample();
+
+  console.log('data', data);
+
   return (
     <div>
       <BarChart
@@ -14,4 +19,4 @@ const example = () => {
   );
 };
 
-export default example;
+export default Example;
