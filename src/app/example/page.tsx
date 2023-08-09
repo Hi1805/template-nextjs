@@ -1,12 +1,17 @@
 'use client';
 import BarChart from '@/components/BarChart/BarChart';
-import useGetExample from '@/features/example/useGetExample';
-import React from 'react';
+import { selectExamples } from '@/redux/example/example.selectors';
+import { fetchExamples } from '@/redux/example/example.thunk';
+import { useAppDispatch, useAppSelector } from '@/redux/store';
+import React, { useEffect } from 'react';
 const Example = () => {
-  const { data } = useGetExample();
+  const example = useAppSelector(selectExamples);
+  console.log('example', example);
+  const dispatch = useAppDispatch();
 
-  console.log('data', data);
-
+  useEffect(() => {
+    dispatch(fetchExamples());
+  }, []);
   return (
     <div>
       <BarChart
