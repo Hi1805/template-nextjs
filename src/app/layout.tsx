@@ -1,5 +1,5 @@
 'user client';
-import Providers from '@/utils/Providers';
+import Providers from '@/common/utils/Providers';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 

@@ -6,9 +6,9 @@ import {
 } from 'axios';
 import axios from 'axios';
 import localStorageService from './localStorage.service';
-import StoreKeys from '@/constants/storekeys';
-import HttpStatusCode from '@/constants/httpStatusCode';
-import axiosConfig from '@/configs/api.config';
+import StoreKeys from '@/common/constants/storekeys';
+import HttpStatusCode from '@/common/constants/httpStatusCode';
+import axiosConfig from '@/common/configs/api.config';
 import _omitBy from 'lodash/omitBy';
 
 /** @class */
