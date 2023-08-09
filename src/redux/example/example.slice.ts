@@ -2,9 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Example, ExampleState } from './example.types';
 import { fetchExamples } from './example.thunk';
 
-const initialState: ExampleState = {
-  examples: [],
-};
+const initialState: Example[] = [];
 //** NAME Features */
 const exampleSlice = createSlice({
   name: 'example',
@@ -12,7 +10,7 @@ const exampleSlice = createSlice({
   initialState,
   extraReducers(builder) {
     builder.addCase(fetchExamples.fulfilled, (state, action) => {
-      state.examples = action.payload || [];
+      return action.payload;
     });
   },
 });
