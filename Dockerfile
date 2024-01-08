@@ -14,7 +14,7 @@ RUN yarn install
 
 # RUN yarn install
 
- 
+
 
 # Stage 2: build
 
@@ -30,24 +30,24 @@ COPY --chown=node:node . .
 
 RUN yarn build
 
- 
+
 
 # Stage 3: run
 
-# FROM node:16-alpine
+FROM node:16-alpine
 
-# WORKDIR /app
+WORKDIR /app
 
-# COPY --chown=node:node --from=builder /app/next.config.js ./
+COPY --chown=node:node --from=builder /app/next.config.js ./
 
-# COPY --chown=node:node --from=builder /app/.next ./.next
+COPY --chown=node:node --from=builder /app/.next ./.next
 
-# COPY --chown=node:node --from=builder /app/public ./public
+COPY --chown=node:node --from=builder /app/public ./public
 
-# COPY --chown=node:node --from=builder /app/node_modules ./node_modules
+COPY --chown=node:node --from=builder /app/node_modules ./node_modules
 
-# COPY --chown=node:node --from=builder /app/package.json ./
+COPY --chown=node:node --from=builder /app/package.json ./
 
- 
 
-# CMD ["yarn", "start:production"]
+
+CMD ["yarn", "start:production"]
